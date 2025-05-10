@@ -1,0 +1,28 @@
+<single-spa-router>
+  <redirect from="/" to="/auth/login"></redirect>
+  <redirect from="/home/login" to="/auth/login"></redirect>
+
+  <route path="/auth/login">
+    <application name="@MyBodytech/mf-login"></application>
+  </route>
+
+  <route default>
+    <section class="flex">
+      <application name="@MyBodytech/mf-navbar"></application>
+      <main class="w-full mt-21 bg-gray-50 rounded-tl-2xl p-5">
+        <route path="/home">
+          <application name="@MyBodytech/mf-home"></application>
+        </route>
+        <route path="/afiliates">
+          <h2>
+            Hola
+          </h2>
+        </route>
+
+        <route default>
+          <h1>404 Not Found</h1>
+        </route>
+      </main>
+    </section>
+  </route>
+</single-spa-router>

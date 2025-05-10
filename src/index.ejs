@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MY BODYTECH</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+  <meta name="importmap-type" use-injector />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script type="injector-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js"
+      }
+    }
+  </script>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js" as="module">
+  <% if (isLocal) { %>
+  <script type="injector-importmap">
+    {
+      "imports": {
+        "@MyBodytech/root-config": "//localhost:9000/MyBodytech-root-config.js",
+        "@MyBodytech/mf-store-auth": "//localhost:8500/MyBodytech-mf-store-auth.js",
+        "@MyBodytech/mf-login": "//localhost:8080/Mybodytech-mf-Auth.js",
+        "@MyBodytech/mf-navbar": "//localhost:8081/MyBodytech-mf-navbar.js",
+        "@MyBodytech/mf-home": "//localhost:8082/single-spa-mf-home.js"
+      }
+    }
+  </script>
+  <% } %>
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@5.1.1/dist/import-map-overrides.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@single-spa/import-map-injector@2.0.1/lib/import-map-injector.js"></script>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <script>
+    window.importMapInjector.initPromise.then(() => {
+      import('@MyBodytech/root-config');
+    });
+  </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://ga.jspm.io/npm:react@19.1.0/dev.index.js",
+        "react-dom": "https://ga.jspm.io/npm:react-dom@19.1.0/dev.index.js",
+        "react-dom/client": "https://ga.jspm.io/npm:react-dom@19.1.0/dev.client.js",
+        "react-i18next": "https://ga.jspm.io/npm:react-i18next@15.5.0/dist/es/index.js",
+        "single-spa-react": "https://ga.jspm.io/npm:single-spa-react@6.0.2/lib/esm/single-spa-react.js"
+      },
+      "scopes": {
+        "https://ga.jspm.io/": {
+          "html-parse-stringify": "https://ga.jspm.io/npm:html-parse-stringify@3.0.0/dist/html-parse-stringify.js",
+          "scheduler": "https://ga.jspm.io/npm:scheduler@0.26.0/dev.index.js",
+          "void-elements": "https://ga.jspm.io/npm:void-elements@3.1.0/index.js"
+        }
+      }
+    }
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+</html>
