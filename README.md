@@ -17,7 +17,7 @@ Esto ejecutará el root-config de forma local. Para que el sistema funcione corr
 
 - Si estás en desarrollo local, verificar que los puertos de cada microfrontend coincidan con los definidos en las importaciones.
 
-## Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 - `public/`
   - `logo.png`: Imagen del logo de la aplicación.
