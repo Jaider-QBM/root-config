@@ -1,4 +1,3 @@
-<p align="center"> <img src="public/logo.png" alt="Bodytech" width="300"> </p> <h1 align="center">root-config - Orquestador</h1>
 Este repositorio contiene la configuración principal de rutas y el registro de microfrontends para una arquitectura basada en single-spa. Su función principal es montar dinámicamente las aplicaciones correspondientes según la ruta actual del navegador.
 
 Este root-config actúa como orquestador, asegurando que cada microfrontend se cargue en el momento adecuado y dentro del contexto correcto de la aplicación.
